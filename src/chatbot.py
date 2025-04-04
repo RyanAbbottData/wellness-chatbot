@@ -67,4 +67,8 @@ def get_query_from_prompt(query: str) -> str:
     # Extract and print the response text.
     response_text = model_response["results"][0]["outputText"]
 
+    # Removing \n from the query if necessary
+    if "\n" in response_text:
+        response_text = response_text.replace("\n", "")
+
     return response_text
